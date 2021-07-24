@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Michaelet's Slider</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo-section">
+                <h1>COVID-19 </h1>
+                <form>
+                    <input type="search" name="search" placeholder="Search" />
+                    <input type="submit" value="search" class="material-icons" />
+                </form>
+            </div>
+            </header>
+            <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="virus.html">Virus</a></li>
+                <li><a href="Countries Affected.html">Countries Affected</a></li>
+                <li><a href="about.html">About</a></li>
+              </ul>
+        </nav>
+        <main>
+        <div class="main-image slider">
+            <img src="images/covid_logo.png">
+            <img src="images/covid.png">
+            <img src="images/symptons.png">
+            <img src="images/protect.png">
+            <button class="slider-prev" onclick="prevImage()"><</button>
+            <button class="slider-next" onclick="nextImage()">></button>
+        </div>
+        <div class="main-content">
+            <section>
+                <article> 
+                    <h2>What Is COVID-19</h2>
+                    <p> COVID-19 is a disease caused by a new strain of coronavirus. 'CO' stands for corona, 'VI' for virus, and 'D' for disease. Formerly, this disease was referred to as '2019 novel coronavirus' or '2019-nCoV.' </p>
+                </article>
+            </section>
+            <aside>
+                <h3>What Should You Do If You Are Experiencing Any Symptons Of This Deadly Virus</h3>
+                <ul>
+                    <li>Stay home and seld-isloate even if you have minor symptoms such as cough, headache, mild fever, until you recover</li>
+                    <li>All your health care provider or hotline for advice</li>
+                    <li>If you need to leave your house or have someone near you, wear a medical mask to avoid infecting others</li>
+                </ul>
+            </aside>
+        </div>
+        </main>
+        <footer>
+            <p>©Copyright 2021 by Michaelet Walters. All rights reversed.</p>
+          </footer>
+    </body>
+    <script>
+        let items = document.querySelectorAll('div img');
+        let currentIndex = 0;
+        function scrollImage() {
+            for(let index=0; index < items.length; index = index + 1) {
+                items[index].setAttribute('style', 'display: none');
+                items[index].classList.add('fade');
+            }
+
+            items[currentIndex].setAttribute('style', 'display: block');
+        }
+
+        function prevImage() {
+            if(currentIndex == 0) {
+                currentIndex = items.length-1;
+            } else {
+                currentIndex = currentIndex-1;
+            }
+            scrollImage();
+        }
+
+        function nextImage() {
+            if(currentIndex == items.length-1) {
+                currentIndex = 0;
+            } else {
+                currentIndex = currentIndex+1;
+            }
+            scrollImage();
+        }
+
+        scrollImage();
+    </script>
+</html>
